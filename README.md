@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍽️ AI Menu Generator (Localhost MVP)
 
-## Getting Started
+> 一个基于 AI 的菜单生成器，上传菜单图片，自动解析菜品并生成相关的美食照片。
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features 
+* **Vision Parsing**: 使用 GPT-4o 自动识别上传的菜单图片（支持手写、截图）。
+* **AI Imaging**: 使用 DALL-E 3 根据菜名和描述自动生成图片。
+* **Instant UI**: 响应式网页界面，实时展示生成进度。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
+* **Framework**: Next.js 14+ (App Router)
+* **Styling**: Tailwind CSS
+* **AI Models**: OpenAI GPT-4o (Vision) & DALL-E 3 (Image Generation)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Getting Started 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
+* Node.js (v18 or higher)
+* OpenAI API Key (需支持 GPT-4o 和 DALL-E 3)
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+1.  **Clone the repo**
+    ```bash
+    git clone https://github.com/Siyu-H/menugen-local.git
+    cd menugen-local
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3.  **Configure Environment**
+    * 在根目录创建一个名为 `.env.local` 的文件。
+    * 填入你的 OpenAI API Key：
+    ```env
+    OPENAI_API_KEY=sk-proj-your-api-key-here
+    ```
 
-## Deploy on Vercel
+4.  **Run the App**
+    ```bash
+    npm run dev
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5.  **Use it**
+    * 打开浏览器访问 [http://localhost:3000](http://localhost:3000)。
+    * 点击上传按钮选择一张菜单图片即可。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## 📄 License
+MIT

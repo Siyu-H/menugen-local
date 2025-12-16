@@ -184,7 +184,7 @@ menugen-local/
 
 ---
 
-## 📝 License
+## License
 
 MIT
 

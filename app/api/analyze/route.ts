@@ -40,7 +40,8 @@ export async function POST(req: Request) {
     if (!content) throw new Error("No content from OpenAI");
     
     const data = JSON.parse(content);
-    return NextResponse.json(data);
+    // 添加模型信息到响应
+    return NextResponse.json({ ...data, model: 'GPT-4o Vision' });
 
   } catch (error) {
     console.error("Analyze Error:", error);

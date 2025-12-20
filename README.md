@@ -16,7 +16,7 @@
 * **Styling**: Tailwind CSS
 * **AI Models**: 
   - OpenAI GPT-4o (Vision) - 菜单识别
-  - DALL-E 3 或 Nano Banana Pro (via NetMind AI) - 图像生成（可配置）
+  - DALL-E 3 或 Nano Banana Pro (Google Imagen) - 图像生成（可配置）
 
 ---
 
@@ -26,7 +26,7 @@
 
 * Node.js (v18 或更高版本)
 * OpenAI API Key (需支持 GPT-4o Vision)
-* NetMind AI API Key (如使用 Nano Banana Pro)
+* Google API Key (如使用 Nano Banana Pro)
 
 ### Installation
 
@@ -45,19 +45,19 @@
    
    在项目根目录创建一个名为 `.env.local` 的文件，填入你的 API Keys：
    
-   **使用 Nano Banana Pro（通过 NetMind AI）：**
+   **使用 Nano Banana Pro（直接使用 Google API）：**
    ```env
    OPENAI_API_KEY=sk-proj-your-api-key-here
-   NANO_BANANA_PRO_API_KEY=your-netmind-ai-api-key
+   GOOGLE_API_KEY=your-google-api-key-here
    IMAGE_GENERATE_MODEL=nano-banana-pro
    ```
    
    > 💡 **提示**：
    > - `IMAGE_GENERATE_MODEL` 环境变量用于选择图像生成模型
    >   - `dall-e-3` - 使用 OpenAI DALL-E 3
-   >   - `nano-banana-pro` - 使用 Nano Banana Pro via NetMind AI
+   >   - `nano-banana-pro` - 使用 Google Nano Banana Pro (Imagen 3.0)
    > - 获取 OpenAI API Key：访问 [OpenAI Platform](https://platform.openai.com/api-keys)
-   > - 获取 NetMind AI API Key：访问 [NetMind AI](https://www.netmind.ai)，注册账户后在 API Token dashboard 获取
+   > - 获取 Google API Key：访问 [Google AI Studio](https://aistudio.google.com/)，登录后在 API 密钥管理页面创建 API 密钥
 
 4. **启动应用**
    ```bash
@@ -105,13 +105,13 @@
 
 - **API 端点**: `/api/generate`
 
-**使用 Nano Banana Pro**
+**使用 Nano Banana Pro (Google Imagen)**
 ```
 GPT-4o Vision (分析) → Nano Banana Pro (尝试) → DALL-E 3 (如果失败则降级)
 ```
-- 首先尝试使用 Nano Banana Pro 生成图片
+- 首先尝试使用 Google Nano Banana Pro (Imagen 3.0) 生成图片
 - 如果 Nano Banana Pro 失败或超时，自动降级到 DALL-E 3
-- 速度：成功时约 10-60 秒/张，失败时快速切换到 DALL-E 3
+- 速度：通常 5-15 秒/张，失败时快速切换到 DALL-E 3
 - 前端会显示：`GPT-4o Vision → Nano Banana Pro (尝试失败) → DALL-E 3`
 
 ### 并行处理机制
